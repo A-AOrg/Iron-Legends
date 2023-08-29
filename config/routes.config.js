@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router()
 
-const teams = require("../controllers/team.controller")
-const champions = require("../controllers/champion.controller")
-const users = require("../controllers/user.controller")
+const teams = require("../controllers/teams.controller")
+const champions = require("../controllers/champions.controller")
+const users = require("../controllers/users.controller")
 const secure = require("../middleware/secure.middleware")
 
-router.get("/", homeController.home);
+
 
 router.get("/users/new", users.create);
 router.post("/users", users.doCreate);
