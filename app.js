@@ -5,16 +5,16 @@ const hbs = require("hbs")
 
 /** Configs */
 
-require("./config/db.config")
+require("./config/db.config");
 
-const session = require("./config/session.config")
+const session = require("./config/session.config");
 
-require("./config/hbs.config")
+require("./config/hbs.config");
 
 /** View Engine */
 
-app.set("view engine", "hbs")
-app.set("views", `${__dirname}/views`)
+app.set("view engine", "hbs");
+app.set("views", `${__dirname}/views`);
 
 /** logger */
 
@@ -35,6 +35,14 @@ app.use(express.static("public"));
 
 const router = require("./config/routes.config.js")
 app.use(router);
+
+////
+
+function pickRandomChamp (champion) {
+    return Math.floor(Math.random() * 164) + 1;
+
+////
+
 
 app.listen(4000, () => {
     console.log("Running!");
