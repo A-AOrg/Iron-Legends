@@ -1,0 +1,11 @@
+<div>
+    <a href="/champions/new">Add New Champion</a>
+</div>
+
+{{#each champions as |champion|}}
+    <div>
+        <a href="/champions/{{ champion._id }}">
+            {{ champion.name }}
+        </a>
+    </div>
+{{/each}}

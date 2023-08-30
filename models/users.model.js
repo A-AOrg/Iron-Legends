@@ -4,7 +4,6 @@ const schema = new mongoose.Schema(
     {
         username: {type: String},
         password: {type: String},
-        user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     },
     {
         timestamps: true,

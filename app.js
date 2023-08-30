@@ -3,6 +3,7 @@ const morgan = require("morgan")
 const app = express()
 const hbs = require("hbs")
 
+
 /** Configs */
 
 require("./config/db.config");
@@ -35,13 +36,6 @@ app.use(express.static("public"));
 
 const router = require("./config/routes.config.js")
 app.use(router);
-
-////
-
-function pickRandomChamp (champion) {
-    return Math.floor(Math.random() * 164) + 1;
-
-////
 
 
 app.listen(4000, () => {
