@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const morgan = require("morgan")
 const app = express()
@@ -38,6 +40,6 @@ const router = require("./config/routes.config.js")
 app.use(router);
 
 
-app.listen(4000, () => {
+app.listen(3000, () => {
     console.log("Running!");
 });

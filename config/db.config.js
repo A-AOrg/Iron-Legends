@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
 
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost/IronLeague"
+
 mongoose
-.connect("mongodb://127.0.0.1:27017/mod2project")
-.then (()=> {
-    console.log("connected");
-})
-.catch((err) => {
-    console.error("error connecting", err);
-});
+    .connect(MONGO_URI)
+    .then(()=> console.log(`Connected to database.`))
+    .catch((err) => console.error("error connecting", err));
