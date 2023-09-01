@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const schema = new mongoose.Schema(
     {
         name: {type: String},
-        class: {type: String},
+        title: {type: String},
+        key: {type: String},
+        img: {type: mongoose.Schema.Types.ObjectId, ref: "Image"},
     },
     {
         timestamps: true,
