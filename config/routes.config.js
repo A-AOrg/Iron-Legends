@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-const teams = require("../controllers/teams.controller");
 const champions = require("../controllers/champions.controller");
 const users = require("../controllers/users.controller");
 const secure = require("../middleware/secure.middleware");

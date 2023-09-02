@@ -6,6 +6,9 @@ const schema = new mongoose.Schema(
         title: {type: String},
         key: {type: String},
         img: {type: mongoose.Schema.Types.ObjectId, ref: "Image"},
+        splashart: {type: String},
+        icon: {type: String},
+        frame: {type: String},
     },
     {
         timestamps: true,
