@@ -1,7 +1,7 @@
 const Champion = require("../models/champions.model")
 
 module.exports.list = (req,res,next) => {
-    Champion.find({id: true})
+    Champion.find()
     .then((champions) => {
       res.render("champions/list", { champions });
     })
