@@ -2,10 +2,19 @@
     <a href="/champions/new">Add New Champion</a>
 </div>
 
-{{#each champions as |champion|}}
-    <div>
-        <a href="/champions/{{ champion._id }}">
-            {{ champion.name }}
-        </a>
+<div class="container">
+    <div class="row">
+        {{#each champions as |champion|}}
+            <div class="col-sm">
+                <div class="card" style="width: 13rem;">
+                    <a href="/champions/{{ champion._id }}">
+                        <img src={{champion.frame}} class="card-img" alt="">
+                        <div class="card-img-overlay">
+                            <p class="lol card-text p-2 fs-5 position-absolute bottom-0 w-100 text-white">{{ champion.name }}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {{/each}}
     </div>
-{{/each}}
+</div>
