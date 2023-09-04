@@ -26,7 +26,11 @@ module.exports.create = (req,res,next) => {
 module.exports.doCreate = (req,res,next) => {
     Champion.create({
         name: req.body.name,
-        class: req.body.class,
+        title: req.body.title,
+        key: parseInt(req.body.key),
+        splashart: req.body.splashart,
+        icon: req.body.icon,
+        frame: req.body.frame,
     })
     .then(() => {
         res.redirect("/champions/list");
