@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'league';
+    src: url('/Friz\ Quadrata\ Regular.ttf');
+  }
+
+  body {
+    font-family: 'league', sans-serif;
+  }
