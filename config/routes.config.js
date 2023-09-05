@@ -9,8 +9,8 @@ const secure = require("../middleware/secure.middleware");
 router.get("/champions/list", champions.list);
 router.get("/champions/new", champions.create);
 router.post("/champions", champions.doCreate);
+router.get("/champions/random", champions.randomChamp);
 router.get("/champions/:id", champions.detail);
-
 
 // users CRUD
 router.get("/users/new", users.create);

@@ -3,7 +3,22 @@ const Champion = require("../models/champions.model")
 module.exports.list = (req,res,next) => {
     Champion.find()
     .then((champions) => {
-      res.render("champions/list", { champions });
+
+        Champion.distinct('name').then((names) => {
+        console.log(names)
+        const championNames = names;
+        const i = Math.floor(Math.random() * championNames.length)
+        const pickedChampName = championNames[i]
+
+        Champion.find({"name": pickedChampName}).then((champion) => {
+            
+            console.log(champion)
+        })
+        .catch(next);
+        });
+
+
+        res.render("champions/list", { champions });
     })
     .catch(() => {});
 };
@@ -37,3 +52,54 @@ module.exports.doCreate = (req,res,next) => {
     })
     .catch(next);
 }
+
+module.exports.randomChamp = (req,res,next) => {
+    Champion.distinct('name').then((names) => {
+        console.log(names)
+        const championNames = names;
+        const i = Math.floor(Math.random() * championNames.length)
+        const pickedChampName = championNames[i]
+
+        Champion.findOne({"name": pickedChampName}).then((champion) => {
+            
+            console.log(champion)
+
+            res.render("champions/random", { champion });
+        })
+        .catch(next);
+    });
+}
+
+
+/*   
+
+shuffle() {
+    for (let i = this.elements.length - 1; i > 0; i--) {
+      const randomIndex = Math.floor(Math.random() * (i - 1));
+      const randomElement = this.elements[randomIndex];
+      this.elements[randomIndex] = this.elements[i];
+      this.elements[i] = randomElement;
+    }
+}
+
+
+function takeRandomChamp() {
+    Champion.distinct('name').then((names) => {
+        const championNames = names;
+    
+        const i = Math.floor(Math.random() * championNames.length)
+
+        Champion.find({"name": `${championNames[i]}`}).then((champion) => {
+            console.log(champion)
+        });
+    });
+}
+*/
+
+/*    
+    let championNum = 0;
+    Champion.count().then((n) => {
+        championNum = n
+    });
+*/
+ 
