@@ -53,25 +53,38 @@ module.exports.doCreate = (req,res,next) => {
     .catch(next);
 }
 
+
+// RANDOMIZER
+
 module.exports.randomChamp = (req,res,next) => {
     Champion.distinct('name').then((names) => {
-        console.log(names)
         const championNames = names;
-        const i = Math.floor(Math.random() * championNames.length)
-        const pickedChampName = championNames[i]
+        const pickedChamps = [];
 
-        Champion.findOne({"name": pickedChampName}).then((champion) => {
-            
-            console.log(champion)
+        
+        for (let i = championNames.length - 1, e = 0; e < 5; i--) {
+            const randomIndex = Math.floor(Math.random() * (i - 1));
+            const randomChampion = championNames[randomIndex];
+            pickedChamps[e] = randomChampion;
 
-            res.render("champions/random", { champion });
+            championNames[randomIndex] = championNames[i];
+            championNames[i] = randomChampion;
+            e++
+        }
+
+        Champion.find({ name: { $in: [`${pickedChamps[0]}`, `${pickedChamps[1]}`, `${pickedChamps[2]}`, `${pickedChamps[3]}`, `${pickedChamps[4]}`] } }).then((champions) => {
+
+            const champ1 = champions[0], champ2 = champions[1], champ3 = champions[2], champ4 = champions[3], champ5 = champions[4];
+            res.render("champions/random", {champ1, champ2, champ3, champ4, champ5})
+
         })
         .catch(next);
-    });
-}
+    }
+)}
 
+/*
 
-/*   
+`${pickedChamps}`
 
 shuffle() {
     for (let i = this.elements.length - 1; i > 0; i--) {
