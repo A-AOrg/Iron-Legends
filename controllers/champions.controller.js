@@ -73,8 +73,14 @@ module.exports.randomChamp = (req,res,next) => {
         }
 
         Champion.find({ name: { $in: [`${pickedChamps[0]}`, `${pickedChamps[1]}`, `${pickedChamps[2]}`, `${pickedChamps[3]}`, `${pickedChamps[4]}`] } }).then((champions) => {
+            const champs = [];
+            let i = 4;
+            champions.map((x) => {
+                champs[i] = x;
+                i--;
+            });
 
-            const champ1 = champions[0], champ2 = champions[1], champ3 = champions[2], champ4 = champions[3], champ5 = champions[4];
+            const champ1 = champs[0], champ2 = champs[1], champ3 = champs[2], champ4 = champs[3], champ5 = champs[4];
             res.render("champions/random", {champ1, champ2, champ3, champ4, champ5})
 
         })
