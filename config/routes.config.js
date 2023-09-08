@@ -3,7 +3,12 @@ const router = express.Router();
 
 const champions = require("../controllers/champions.controller");
 const users = require("../controllers/users.controller");
+const items = require("../controllers/items.cotroller")
 const secure = require("../middleware/secure.middleware");
+
+// items
+router.get("/items/list", items.list);
+router.post("/items/:id/delete", items.delete);
 
 // champions CRUD
 router.get("/champions/list", champions.list);

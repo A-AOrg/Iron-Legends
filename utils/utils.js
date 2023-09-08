@@ -16,6 +16,10 @@ module.exports.pickAmountOfRandomaElements = (array, amount) => {
     return pickedElements;
 }
 
+
+
+
+
 // para usarla:^
 // const utils = require('../utils/utils')´
 // utils.pickAmountOf...
