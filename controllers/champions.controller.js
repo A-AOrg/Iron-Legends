@@ -41,8 +41,7 @@ module.exports.randomChamp = (req,res,next) => {
         const pickedNames = utils.pickAmountOfRandomaElements(names, 5);
         Champion.find({ name: { $in: [`${pickedNames[0]}`, `${pickedNames[1]}`, `${pickedNames[2]}`, `${pickedNames[3]}`, `${pickedNames[4]}`] } }).then((champions) => {
             const champs = utils.pickAmountOfRandomaElements(champions, 5);
-            const champ1 = champs[0], champ2 = champs[1], champ3 = champs[2], champ4 = champs[3], champ5 = champs[4];
-            res.render("champions/random", {champ1, champ2, champ3, champ4, champ5});
+            res.render("champions/random", {champs});
         })
         .catch(next);
     }

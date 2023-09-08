@@ -1,19 +1,18 @@
-<h1>{{champ1.name}}</h1>
-<h1>{{champ1.title}}</h1>
-<img src={{champ1.splashart}} alt="">
-
-<h1>{{champ2.name}}</h1>
-<h1>{{champ2.title}}</h1>
-<img src={{champ2.splashart}} alt="">
-
-<h1>{{champ3.name}}</h1>
-<h1>{{champ3.title}}</h1>
-<img src={{champ3.splashart}} alt="">
-
-<h1>{{champ4.name}}</h1>
-<h1>{{champ4.title}}</h1>
-<img src={{champ4.splashart}} alt="">
-
-<h1>{{champ5.name}}</h1>
-<h1>{{champ5.title}}</h1>
-<img src={{champ5.splashart}} alt="">
+<div class="container text-center" style="max-width: 900px;">
+    <div class="col align-self-center mt-5">
+        {{#each champs as |champion|}}
+            <div class="card mb-3 bg-primary my-4">
+                <div class="row g-0">
+                    <div class="col-md-1">
+                      <img src="{{champion.icon}}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        
+                      </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>    
+</div>
