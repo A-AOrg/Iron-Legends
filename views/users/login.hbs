@@ -1,16 +1,23 @@
-<h2>Log in</h2>
-
-<form method="POST" action="/login">
+<div class="login">
   <div>
-    <label>Username</label>
-    <input name="username" type="text" placeholder="Username"/>
-  </div>
+       
+  <form method="POST" action="/login" class="wrapper">
+    <h2>Log in</h2>
+      <div class="input-box">
+        <label>Username</label>
+      <input name="username" type="text" placeholder="Username"/>
+    </div>
 
-  <div>
+  <div class= "input-box">
     <label>Password</label>
     <input name="password" type="password" placeholder="Password"/>
   </div>
 
   <button type="submit">Log in</button>
 
+<div class="login-register">
+  <p>Don't have an account?<a href="/users/new" class="register-link">Register</a></p>
+</div>
 </form> 
+</div>
+</div>

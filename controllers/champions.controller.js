@@ -1,5 +1,5 @@
 const Champion = require("../models/champions.model");
-const utils = require("../utils/utils");
+const Utils = require("../utils/utils");
 
 module.exports.list = (req,res,next) => {
     Champion.find()
@@ -38,9 +38,9 @@ module.exports.doCreate = (req,res,next) => {
 
 module.exports.randomChamp = (req,res,next) => {
     Champion.distinct('name').then((names) => {
-        const pickedNames = utils.pickAmountOfRandomaElements(names, 5);
+        const pickedNames = Utils.pickAmountOfRandomaElements(names, 5);
         Champion.find({ name: { $in: [`${pickedNames[0]}`, `${pickedNames[1]}`, `${pickedNames[2]}`, `${pickedNames[3]}`, `${pickedNames[4]}`] } }).then((champions) => {
-            const champs = utils.pickAmountOfRandomaElements(champions, 5);
+            const champs = Utils.pickAmountOfRandomaElements(champions, 5);
             res.render("champions/random", {champs});
         })
         .catch(next);

@@ -1,16 +1,24 @@
-<h2>Register account</h2>
+<div class="register">
 
-<form method="POST" action="/users">
-  <div>
+
+
+<form method="POST" action="/users" class="wrapper">
+<h2>Register</h2>
+  <div class="input-box">
     <label>Username</label>
     <input name="username" type="text" placeholder="Username"/>
   </div>
 
-  <div>
+  <div class="input-box">
     <label>Password</label>
     <input name="password" type="password" placeholder="Password"/>
   </div>
 
-  <button type="submit">Create</button>
+  <button type="submit">Register</button>
+
+  <div class="login-register">
+  <p>Already have an account?<a href="/login" class="login-link">Log In</a></p>
+</div>
 
 </form>
+</div>

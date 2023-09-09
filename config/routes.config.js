@@ -8,6 +8,7 @@ const secure = require("../middleware/secure.middleware");
 
 // items
 router.get("/items/list", items.list);
+router.get("/items/build", items.randomBuild)
 router.post("/items/:id/delete", items.delete);
 
 // champions CRUD
