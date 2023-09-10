@@ -39,7 +39,7 @@ module.exports.doCreate = (req,res,next) => {
 module.exports.randomChamp = (req,res,next) => {
     Champion.distinct('name').then((names) => {
         const pickedNames = Utils.pickAmountOfRandomaElements(names, 5);
-        Champion.find({ name: { $in: [`${pickedNames[0]}`, `${pickedNames[1]}`, `${pickedNames[2]}`, `${pickedNames[3]}`, `${pickedNames[4]}`] } }).then((champions) => {
+        Champion.find({ name: { $in: pickedNames } }).then((champions) => {
             const champs = Utils.pickAmountOfRandomaElements(champions, 5);
             res.render("champions/random", {champs});
         })

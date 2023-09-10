@@ -3,8 +3,13 @@ const router = express.Router();
 
 const champions = require("../controllers/champions.controller");
 const users = require("../controllers/users.controller");
-const items = require("../controllers/items.cotroller")
+const items = require("../controllers/items.cotroller");
 const secure = require("../middleware/secure.middleware");
+const builds = require("../controllers/builds.controller");
+
+
+// builds
+router.get("/random", builds.RandomAll);
 
 // items
 router.get("/items/list", items.list);
