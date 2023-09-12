@@ -1,4 +1,16 @@
-<h1>{{champion.name}}</h1>
-<h1>{{champion.title}}</h1>
-<img src={{champion.splashart}} alt="">
+<div class="champwrap">
+    <body>
+        <h1>{{championDetail.champion.name}}</h1>
+        <h1>{{championDetail.champion.title}}</h1>
+        <img src={{championDetail.champion.icon}} alt="">
+        <img src={{championDetail.champion.splashart}} alt="">
+    </body>
+</div>
 
+{{#each championDetail.comments as |comment|}}
+    <div class="card mb-3">
+        <div class="card-body">
+            <p class="card-text">{{comment.text}}</p>
+        </div>
+    </div>
+{{/each}}  

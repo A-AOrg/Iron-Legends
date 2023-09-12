@@ -9,6 +9,26 @@ module.exports.list = (req,res,next) => {
     .catch(() => {});
 };
 
+
+const Comment = require("../models/comment.model");
+
+module.exports.detail = (req, res, next) => {
+    const championDetail = [];
+    Comment.find({ champion: { $eq: req.params.id }})
+    .then((commentslist) => {
+        championDetail.comments = Utils.pickAmountOfRandomaElements(commentslist, 2);
+    })
+
+    Champion.findById(req.params.id)
+    .then((champ) => {
+        championDetail.champion = champ;
+        console.log(championDetail.comments);
+        setTimeout(() => {res.render("champions/detail", { championDetail })}, 250)
+    })
+    .catch(next);
+}
+
+/*
 module.exports.detail = (req,res,next) => {
     Champion.findById(req.params.id)
         .then((champion) => {
@@ -16,6 +36,7 @@ module.exports.detail = (req,res,next) => {
         })
         .catch(next);
 };
+*/
 
 module.exports.create = (req,res,next) => {
     res.render("champions/new")

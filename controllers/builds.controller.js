@@ -1,3 +1,4 @@
+const Build = require("../models/build");
 const Champion = require("../models/champions.model");
 const Item = require("../models/items.model");
 const Utils = require("../utils/utils");
@@ -17,7 +18,7 @@ module.exports.RandomAll = (req,res,next) => {
 
     Item.find({ boots: { $eq: true } })
     .then((boots) => {
-        build.boot = Utils.pickAmountOfRandomaElements(boots, 1)[0]
+        build.boots = Utils.pickAmountOfRandomaElements(boots, 1)[0]
     })
     .catch(() => {});
     Item.find({ mythic: { $eq: true } })
@@ -31,3 +32,23 @@ module.exports.RandomAll = (req,res,next) => {
     })
     .catch(() => {});
 }
+
+
+/*
+module.exports.doCreate = (req,res,next) => {
+    Build.create({
+        champion: req.body.champion,
+        boots: req.body.boots,
+        mythic: req.body.mythic,
+        item1: req.body.item1,
+        item2: req.body.item2,
+        item3: req.body.item3,
+        item4: req.body.item4,
+        item5: req.body.item5,
+    })
+    .then(() => {
+        res.redirect("");
+    })
+    .catch(next);
+}
+*/
