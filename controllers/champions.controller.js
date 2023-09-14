@@ -23,7 +23,7 @@ module.exports.detail = (req, res, next) => {
     .then((champ) => {
         championDetail.champion = champ;
         console.log(championDetail.comments);
-        setTimeout(() => {res.render("champions/detail", { championDetail })}, 250)
+        setTimeout(() => {res.render("champions/detail", { championDetail })}, 500)
     })
     .catch(next);
 }

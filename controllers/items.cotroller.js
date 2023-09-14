@@ -20,7 +20,7 @@ module.exports.randomBuild = (req,res,next) => {
     const build = {};
     Item.find({ boots: { $eq: true } })
     .then((boots) => {
-        build.boot = Utils.pickAmountOfRandomaElements(boots, 1)[0] 
+        build.boots = Utils.pickAmountOfRandomaElements(boots, 1)[0] 
     })
     .catch(() => {});
     Item.find({ mythic: { $eq: true } })
