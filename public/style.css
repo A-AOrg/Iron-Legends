@@ -189,3 +189,28 @@
 .champwrap {
   text-align: center;
 }
+
+.image {
+  position: relative;
+
+  transition: 0.5s ease-in-out;
+}
+.image:hover img {
+  filter: blur(0.3rem);
+}
+.image:hover p {
+  opacity: 1;
+}
+.image p {
+  font-family: Trebuchet Ms;
+  position: absolute;
+  text-align: center;
+  font-size: 25px;
+  top: 45%;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+}
+
+.build {
+  font-family: Trebuchet Ms;
+}

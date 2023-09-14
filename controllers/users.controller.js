@@ -9,6 +9,7 @@ module.exports.doCreate = (req, res, next) => {
         User.create({
             username: req.body.username,
             password: hash,
+            admin: false,
         })
         .then(() => {
             res.redirect("/login");

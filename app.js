@@ -10,7 +10,7 @@ const hbs = require("hbs")
 
 require("./config/db.config");
 
-const session = require("./config/session.config");
+const { session, loadSessionUser} = require("./config/session.config");
 
 require("./config/hbs.config");
 
@@ -25,6 +25,7 @@ app.use(morgan("dev"));
 
 /** session middleware */
 app.use(session);
+app.use(loadSessionUser)
 
 /** Support req.body **/
 
@@ -43,5 +44,3 @@ app.use(router);
 app.listen(3000, () => {
     console.log("Running!");
 });
-
-

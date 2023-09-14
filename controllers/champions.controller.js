@@ -1,5 +1,8 @@
 const Champion = require("../models/champions.model");
 const Utils = require("../utils/utils");
+const Build = require("../models/build");
+const Comment = require("../models/comment.model");
+
 
 module.exports.list = (req,res,next) => {
     Champion.find()
@@ -10,20 +13,19 @@ module.exports.list = (req,res,next) => {
 };
 
 
-const Comment = require("../models/comment.model");
-
 module.exports.detail = (req, res, next) => {
-    const championDetail = [];
-    Comment.find({ champion: { $eq: req.params.id }})
-    .then((commentslist) => {
-        championDetail.comments = Utils.pickAmountOfRandomaElements(commentslist, 2);
+    const championDetail = {};
+    Build.find({ champion: { $eq: req.params.id }})
+    .then((buildList) => {
+        if (buildList.length > 0) {
+            championDetail.build = Utils.pickAmountOfRandomaElements(buildList, 4);
+        }
     })
 
     Champion.findById(req.params.id)
     .then((champ) => {
         championDetail.champion = champ;
-        console.log(championDetail.comments);
-        setTimeout(() => {res.render("champions/detail", { championDetail })}, 500)
+        setTimeout(() => {res.render("champions/detail", { championDetail })}, 750)
     })
     .catch(next);
 }
@@ -56,15 +58,3 @@ module.exports.doCreate = (req,res,next) => {
     })
     .catch(next);
 }
-
-module.exports.randomChamp = (req,res,next) => {
-    Champion.distinct('name').then((names) => {
-        const pickedNames = Utils.pickAmountOfRandomaElements(names, 5);
-        Champion.find({ name: { $in: pickedNames } }).then((champions) => {
-            const champs = Utils.pickAmountOfRandomaElements(champions, 5);
-            res.render("champions/random", {champs});
-        })
-        .catch(next);
-    }
-)}
-

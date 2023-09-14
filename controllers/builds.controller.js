@@ -4,7 +4,7 @@ const Item = require("../models/items.model");
 const Utils = require("../utils/utils");
 
 
-module.exports.RandomAll = (req,res,next) => {
+module.exports.randomBuild = (req,res,next) => {
     const build = {};
 
     Champion.distinct('name').then((names) => {
@@ -12,7 +12,7 @@ module.exports.RandomAll = (req,res,next) => {
         Champion.find({ name: { $in: pickedNames } }).then((champions) => {
             const champ = Utils.pickAmountOfRandomaElements(champions, 1)[0];
             build.champion = champ
-            setTimeout(() => {res.render("random", { build })}, 250)
+            setTimeout(() => {res.render("random/build", { build })}, 500)
         })
     });
 
@@ -20,7 +20,7 @@ module.exports.RandomAll = (req,res,next) => {
     .then((boots) => {
         build.boots = Utils.pickAmountOfRandomaElements(boots, 1)[0]
     })
-    .catch(() => {});
+    .catch();
     Item.find({ mythic: { $eq: true } })
     .then((mythics) => {
         build.mythic = Utils.pickAmountOfRandomaElements(mythics, 1)[0]
@@ -28,13 +28,16 @@ module.exports.RandomAll = (req,res,next) => {
     .catch(() => {});
     Item.find({$and: [{ boots: { $in: [ false ] }},{ mythic: { $in: [ false ] }}]})
     .then((legendaries) => {
-        build.legendaries = Utils.pickAmountOfRandomaElements(legendaries, 5)
+        const items = Utils.pickAmountOfRandomaElements(legendaries, 5);
+        build.item1 = items[0];
+        build.item2 = items[1];
+        build.item3 = items[2];
+        build.item4 = items[3];
+        build.item5 = items[4];
     })
     .catch(() => {});
 }
 
-
-/*
 module.exports.doCreate = (req,res,next) => {
     Build.create({
         champion: req.body.champion,
@@ -46,9 +49,6 @@ module.exports.doCreate = (req,res,next) => {
         item4: req.body.item4,
         item5: req.body.item5,
     })
-    .then(() => {
-        res.redirect("");
-    })
+    .then()
     .catch(next);
 }
-*/

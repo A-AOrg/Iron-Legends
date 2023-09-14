@@ -1,19 +1,19 @@
-<a href="/champions/new">Add New Champion</a>
-    <div class="container">
+<div class="container">
+    {{#if currentUser.admin}}
+        <a href="/champions/new" class="text-white">Add New Champion</a> 
+    {{/if}}
     <div class="row champlist">
         {{#each champions as |champion|}}
             <div class="col-sm">
                 <div class="m-3 card" style="width: 10rem;">
                     <a href="/champions/{{ champion._id }}">
+                    <div class="image">
                         <img src={{champion.frame}} class="card-img" alt="">
-                        <div class="card-img-overlay">
-                            <p class="card-text p-2 fs-5 position-absolute bottom-0 w-100 text-white">{{ champion.name }}</p>
-                        </div>
+                        <p class="card-text p-2 fs-5 position-absolute bottom-0 w-100 text-white">{{champion.name}}</p>
+                    </div>
                     </a>
                 </div>
             </div>
         {{/each}}
     </div>
 </div>
-</div>
-

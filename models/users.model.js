@@ -4,6 +4,7 @@ const schema = new mongoose.Schema(
     {
         username: {type: String},
         password: {type: String},
+        admin: {type: Boolean},
     },
     {
         timestamps: true,
