@@ -7,13 +7,18 @@ const items = require("../controllers/items.cotroller");
 const secure = require("../middleware/secure.middleware");
 const builds = require("../controllers/builds.controller");
 const teams = require("../controllers/teams.controller");
+const comments = require("../controllers/comments.controller");
+
 
 //teams
 router.get("/random/team", teams.randomComp);
 
 // builds
+router.get("/champions/:id/builds/new", secure.isLogged, builds.create);
 router.post("/random/new", builds.doCreate);
 router.get("/random/build", builds.randomBuild);
+router.post("/builds/:id", comments.doCreate);
+router.get("/builds/:id", builds.detail);
 
 // items
 router.get("/items/list", items.list);

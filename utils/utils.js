@@ -1,3 +1,6 @@
+const Rune = require("../models/runes.model");
+const Utils = require("../utils/utils");
+
 module.exports.pickAmountOfRandomaElements = (array, amount) => {
     const mapedArray = array.map((element) => {return element;});
     const pickedElements = [];
@@ -15,9 +18,6 @@ module.exports.pickAmountOfRandomaElements = (array, amount) => {
     }
     return pickedElements;
 }
-
-
-
 
 
 // para usarla:^

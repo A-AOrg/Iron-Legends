@@ -1,8 +1,9 @@
 const Item = require("../models/items.model");
 const Utils = require("../utils/utils")
+const Rune = require("../models/runes.model");
 
 module.exports.list = (req,res,next) => {
-    Item.find()
+    Rune.find()
     .then((items) => {
         res.render("items/list", { items });
     })

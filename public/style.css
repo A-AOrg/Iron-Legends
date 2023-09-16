@@ -1,77 +1,76 @@
 @font-face {
-    font-family: 'league';
-    src: url('/Friz\ Quadrata\ Regular.ttf');
-  }
+  font-family: 'league';
+  src: url('/Friz\ Quadrata\ Regular.ttf');
+}
 
-  body {
-    margin: 0;
-    padding: 0;
-    background: #fff;
-    color: #fff;
-    font-family: 'league', sans-serif;
-    color:white;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #fff;
+  font-family: 'league', sans-serif;
+  color:white;
+}
 
-  .banner{
-    height: 100vh;
-    width: 100%;
-    background:url('https://res.cloudinary.com/dg1pgnrnl/image/upload/Assets/overlay_hquylb.png'),url('https://res.cloudinary.com/dg1pgnrnl/image/upload/Assets/bg_unlict.jpg');
-    background-position: top;
-    background-size:cover;
-   /* background-attachment: fixed;*/
-   background-repeat: no-repeat;
-  }
+.banner{
+  height: 100vh;
+  width: 100%;
+  background:url('https://res.cloudinary.com/dg1pgnrnl/image/upload/Assets/overlay_hquylb.png'),url('https://res.cloudinary.com/dg1pgnrnl/image/upload/Assets/bg_unlict.jpg');
+  background-position: top;
+  background-size:cover;
+  /* background-attachment: fixed;*/
+  background-repeat: no-repeat;
+}
 
-  .banner .info {
-    margin-top: 15%;
-  }
+.banner .info {
+  margin-top: 15%;
+}
 
-  .banner .info h1{
-    font-size: 2.5em;
-    font-weight: 700;
-    color: white;
-    letter-spacing: 2px;
-  }
+.banner .info h1{
+  font-size: 2.5em;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 2px;
+}
 
-  .banner .info p{
-    font-size: 2em;
-    font-weight: 500;
-    color: #aaa;
-    letter-spacing: 2px;
-  }
+.banner .info p{
+  font-size: 2em;
+  font-weight: 500;
+  color: #aaa;
+  letter-spacing: 2px;
+}
 
-  .banner .info a {
-    width: 30%;
-    height: 6%;
-    margin-left:50% ;
-    transform: translateX(-50%);
-    background: #fff;
-    border:none;
-    outline:none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-    cursor:pointer;
-    font-size:16px;
-    color:#333;
-    font-weight: 600;
-  }
+.banner .info a {
+  width: 30%;
+  height: 6%;
+  margin-left:50% ;
+  transform: translateX(-50%);
+  background: #fff;
+  border:none;
+  outline:none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  cursor:pointer;
+  font-size:16px;
+  color:#333;
+  font-weight: 600;
+}
 
+.banner .info h5 {
+  margin-top: 20px;
+}
 
-
-  .banner .info h5 {
-    margin-top: 20px;
-  }
-  .register {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background:url('https://res.cloudinary.com/dg1pgnrnl/image/upload/Assets/overlay_hquylb.png'),url('https://res.cloudinary.com/dg1pgnrnl/image/upload/Assets/desktop-wallpaper-worlds-2018-rise-faker-leagueoflegends-faker_vgm8lf.jpg');
-    background-position: center;
-    background-size:cover;
-   /* background-attachment: fixed;*/
-   background-repeat: no-repeat;
-  }
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background:url('https://res.cloudinary.com/dg1pgnrnl/image/upload/Assets/overlay_hquylb.png'),url('https://res.cloudinary.com/dg1pgnrnl/image/upload/Assets/desktop-wallpaper-worlds-2018-rise-faker-leagueoflegends-faker_vgm8lf.jpg');
+  background-position: center;
+  background-size:cover;
+  /* background-attachment: fixed;*/
+  background-repeat: no-repeat;
+}
 
 .champlist{
   border:2px solid rgba(255, 255, 255, .2);
@@ -91,19 +90,19 @@
   background:url('https://res.cloudinary.com/dg1pgnrnl/image/upload/Assets/overlay_hquylb.png'),url('https://res.cloudinary.com/dg1pgnrnl/image/upload/Assets/content-original-championillustrations-group-slashes-9828cf13cecf88fb9f21ee17afa6874e_qzjzr8.jpg');
   background-position: center;
   background-size: cover;
- /* background-attachment: fixed;*/
- background-repeat: no-repeat;
+  /* background-attachment: fixed;*/
+  background-repeat: no-repeat;
 }
 
 .wrapper {
- width: 420px;
- border:2px solid rgba(255, 255, 255, .2);
- backdrop-filter: blur(20px);
- box-shadow: 0 0 10px rgba(0, 0, 0, .2);
- background: transparent;
- color:#fff;
- border-radius: 10px;
- padding: 30px 40px;
+  width: 420px;
+  border:2px solid rgba(255, 255, 255, .2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  background: transparent;
+  color:#fff;
+  border-radius: 10px;
+  padding: 30px 40px;
 }
 
 .wrapper h2{
@@ -213,4 +212,55 @@
 
 .build {
   font-family: Trebuchet Ms;
+}
+
+.last {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 20px 0 15px
+}
+
+.detailb {
+  text-align: center;
+  font-family: Trebuchet Ms;
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border:none;
+  outline:none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  color:#333;
+  font-weight: 600px;
+}
+
+.dbuild {
+  margin-left: 25%;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+
+.dbuild > img {
+  margin: 0 15px;
+  width: 100px;
+  height: auto;
+}
+
+.champbuildtxt {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.commentsection {
+  margin-right: -55%;
+  margin-top: -25%;
+}
+.comments {
+  margin-left: 10px;
+}
+
+.verticalrule {
+  margin-left: 50%;
+  margin-top: -22%;
 }

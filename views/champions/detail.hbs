@@ -1,4 +1,3 @@
-
 <div class="champwrap">
     <body>
         <h1>{{championDetail.champion.name}}</h1>
@@ -6,61 +5,19 @@
         <img src={{championDetail.champion.splashart}} alt="">
     </body>
 </div>
-<section style="background-color: transparent">
-  <div class="container my-5 py-5 text-dark">
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-6">
-        <div class="card">
-          <div class="card-body p-4">
-            <div class="d-flex flex-start w-100">
-              <div class="w-100">
-                <h5>Add a comment</h5>
-                <div class="form-outline">
-                  <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
-                  <label class="form-label" for="textAreaExample">What is your view?</label>
-                </div>
-                <div class="d-flex justify-content-flex-start mt-3">
-                  <button type="button" class="btn btn-danger">
-                    Send <i class="fas fa-long-arrow-alt-right ms-1"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section style="">
-  <div class="container my-5 py-5 text-dark">
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-12 col-lg-10 col-xl-8">
-        <div class="d-flex justify-content-flex-start align-items-center mb-4">
-          <div class="card">
-            <div class="card-body p-2 d-flex align-items-center">
-              <h6 class="text-primary fw-bold small mb-0 me-1">Comments "ON"</h6>
-              <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
-                <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>  
-    </div>    
-  </div>
-</section>
+<div class="champbuildtxt">
+<h1>Builds</h1>
+</div>
 
 {{#if championDetail.build}}
   {{#each championDetail.build as |build|}}
     <div class="container text-center" style="max-width: 900px;">
         <div class="col align-self-center mt-5">
-            <div class="card mb-3 bg-primary my-4">
+            <div class="card mb-3 bg-transparent my-4">
                 <div class="row g-0">
                     <div class="col-md-8">
-                        <div class="card-body">
+                        <div class="card-body row">
                             <div class="col-sm my-2">
                                 <div class="m-3 card" style="width: 10rem;">
                                     <img src={{build.boots}} class="card-img" alt="">
@@ -97,6 +54,9 @@
                                 <div class="m-3 card" style="width: 10rem;">
                                     <img src={{build.item5}} class="card-img" alt="">
                                 </div>
+                            </div>
+                            <div class= "detailb">
+                              <a class= "fs-5 text-black active" href="/builds/{{ build._id }}">Build Details</a>
                             </div>
                         </div>
                     </div>

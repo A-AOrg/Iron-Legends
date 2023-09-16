@@ -1,0 +1,79 @@
+<div class="position-absolute top-50 start-50 translate-middle">
+    <img src="{{champion.icon}}" alt="">
+    <form>
+        <fieldset name="boots" max="1">
+            <legend>Boots</legend>
+            {{#each items.boots as |boots|}}
+                <label>
+                    <input type="radio" name="boots" value="{{ boots.image }}"><img src="{{ boots.image }}" alt="">
+                </label>
+            {{/each}}
+        </fieldset>
+        <fieldset name="mythic" max="1">
+            <legend>Mythic</legend>
+            {{#each items.mythics as |mythic|}}
+                <label>
+                    <input type="radio" name="mythic" value="{{ mythic.image }}"><img src="{{ mythic.image }}" alt="">
+                </label>
+            {{/each}}
+        </fieldset>
+        <fieldset name="legendary" max="5">
+            <legend>legendaries</legend>
+            {{#each items.legendaries as |legendary|}}
+                <label>
+                    <input type="checkbox" name="legendary" value="{{ legendary.image }}"><img src="{{ legendary.image }}" alt="">
+                </label>
+            {{/each}}
+        </fieldset>
+        <!-- Add more skills as needed -->
+        <button type="submit">Learn Selected Skill</button>
+    </form>
+</div>
+
+
+
+
+
+<!--
+    <label for="champion"><img src="{{champion.icon}}" alt=""></label>
+    <input name="champion" hidden type="text" value='{{champion.id}}'/>
+
+    
+    <select name="boots">
+        {{#each items.boots as |boots|}}
+            <option style="background-image: url('{{boots.image}}');" value="{{boots.name}}">{{boots.name}}</option>
+        {{/each}}
+    </select>
+    <select name="mythic" size="10">
+        {{#each items.mythics as |mythic|}}
+            <option value="{{mythic.image}}"><img src="{{mythic.image}}" alt=""></option>
+        {{/each}}
+    </select>
+    <select name="item1" size="10">
+        {{#each items.legendaries as |legendary|}}
+            <option value="{{legendary.image}}"><img src="{{legendary.image}}" alt=""></option>
+        {{/each}}
+    </select>
+    <select name="item2" size="10">
+        {{#each items.legendaries as |legendary|}}
+            <option value="{{legendary.image}}"><img src="{{legendary.image}}" alt=""></option>
+        {{/each}}
+    </select>
+    <select name="item3" size="10">
+        {{#each items.legendaries as |legendary|}}
+            <option value="{{legendary.image}}"><img src="{{legendary.image}}" alt=""></option>
+        {{/each}}
+    </select>
+    <select name="item4" size="10">
+        {{#each items.legendaries as |legendary|}}
+            <option value="{{legendary.image}}"><img src="{{legendary.image}}" alt=""></option>
+        {{/each}}
+    </select>
+    <select name="item5" size="10">
+        {{#each items.legendaries as |legendary|}}
+            <option value="{{legendary.image}}"><img src="{{legendary.image}}" alt=""></option>
+        {{/each}}
+    </select>
+    <button type="submit">Save</button>
+
+-->

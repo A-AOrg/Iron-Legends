@@ -18,6 +18,7 @@ module.exports.detail = (req, res, next) => {
     Build.find({ champion: { $eq: req.params.id }})
     .then((buildList) => {
         if (buildList.length > 0) {
+            // fix (utility to pick all elements)
             championDetail.build = Utils.pickAmountOfRandomaElements(buildList, 4);
         }
     })

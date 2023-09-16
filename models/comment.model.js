@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const schema = new mongoose.Schema(
     {
         text: {type: String},
-        author: { type: mongoose.Schema.Types.ObjectId, ref: "User"},
-        champion: { type: mongoose.Schema.Types.ObjectId, ref:"Champion"}
+        author: { type: String},
+        build: { type: mongoose.Schema.Types.ObjectId, ref:"Build"}
     },
     {
         timestamp: true
