@@ -3,7 +3,6 @@ const router = express.Router();
 
 const champions = require("../controllers/champions.controller");
 const users = require("../controllers/users.controller");
-const items = require("../controllers/items.cotroller");
 const secure = require("../middleware/secure.middleware");
 const builds = require("../controllers/builds.controller");
 const teams = require("../controllers/teams.controller");
@@ -19,10 +18,6 @@ router.post("/random/new", builds.doCreate);
 router.get("/random/build", builds.randomBuild);
 router.post("/builds/:id", comments.doCreate);
 router.get("/builds/:id", builds.detail);
-
-// items
-router.get("/items/list", items.list);
-router.post("/items/:id/delete", items.delete);
 
 // champions CRUD
 router.get("/champions/list", champions.list);

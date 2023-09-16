@@ -18,8 +18,7 @@ module.exports.detail = (req, res, next) => {
     Build.find({ champion: { $eq: req.params.id }})
     .then((buildList) => {
         if (buildList.length > 0) {
-            // fix (utility to pick all elements)
-            championDetail.build = Utils.pickAmountOfRandomaElements(buildList, 4);
+            championDetail.build = buildList;
         }
     })
 
@@ -30,16 +29,6 @@ module.exports.detail = (req, res, next) => {
     })
     .catch(next);
 }
-
-/*
-module.exports.detail = (req,res,next) => {
-    Champion.findById(req.params.id)
-        .then((champion) => {
-            res.render("champions/detail", { champion });
-        })
-        .catch(next);
-};
-*/
 
 module.exports.create = (req,res,next) => {
     res.render("champions/new")

@@ -88,21 +88,6 @@ module.exports.randomBuild = (req,res,next) => {
     .catch(() => {});
 }
 
-module.exports.doCreate = (req,res,next) => {
-    Build.create({
-        champion: req.body.champion,
-        boots: req.body.boots,
-        mythic: req.body.mythic,
-        item1: req.body.item1,
-        item2: req.body.item2,
-        item3: req.body.item3,
-        item4: req.body.item4,
-        item5: req.body.item5,
-    })
-    .then()
-    .catch(next);
-}
-
 module.exports.create = (req,res,next) => {
     const items = {}
 
@@ -132,18 +117,33 @@ module.exports.create = (req,res,next) => {
     .catch(next);
 }
 
+module.exports.doCreate = (req,res,next) => {
+    Build.create({
+        champion: req.body.champion,
+        boots: req.body.boots,
+        mythic: req.body.mythic,
+        item1: req.body.item1,
+        item2: req.body.item2,
+        item3: req.body.item3,
+        item4: req.body.item4,
+        item5: req.body.item5,
+    })
+    .then()
+    .catch(next);
+}
+
 module.exports.detail = (req, res, next) => {
     const buildDetails = {};
     Comment.find({ build: { $eq: req.params.id }})
     .then((commentList) => {
         if (commentList.length > 0) {
-            buildDetails.comments = Utils.pickAmountOfRandomaElements(commentList, 5);
+            buildDetails.comments = commentList
         }
     })
     Build.findById(req.params.id)
     .then((build) => {
         buildDetails.build = build
-        setTimeout(() => {res.render("builds/detail", { buildDetails })}, 750)
+        setTimeout(() => {res.render("builds/detail", { buildDetails })}, 250)
     })
     .catch(next);
 }
