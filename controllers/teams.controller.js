@@ -5,8 +5,14 @@ const Rune = require("../models/runes.model");
 const Utils = require("../utils/utils");
 
 module.exports.randomComp = (req,res,next) => {
-    const team = {1: {}, 2: {}, 3: {}, 4: {}, 5: {}};
-
+    const team = {
+        1: {"position": "https://res.cloudinary.com/dg1pgnrnl/image/upload/Positions/Top.png"},
+        2: {"position": "https://res.cloudinary.com/dg1pgnrnl/image/upload/Positions/Jungle.png"},
+        3: {"position": "https://res.cloudinary.com/dg1pgnrnl/image/upload/Positions/Mid.png"},
+        4: {"position": "https://res.cloudinary.com/dg1pgnrnl/image/upload/Positions/Bot.png"},
+        5: {"position": "https://res.cloudinary.com/dg1pgnrnl/image/upload/Positions/Support.png"},
+    };
+    
     Champion.distinct('name').then((names) => {
         const pickedNames = Utils.pickAmountOfRandomaElements(names, 5);
         Champion.find({ name: { $in: pickedNames } }).then((champions) => {
@@ -21,6 +27,13 @@ module.exports.randomComp = (req,res,next) => {
 
         })
     });
+
+    Rune.find({"level": 1})
+    .then((runes) => {
+        for(let i = 1; i <= 5; i++) {
+            team[`${i}`].rune = Utils.pickAmountOfRandomaElements(runes, 1)[0]
+        }
+    })
 
     Item.find({ boots: { $eq: true } })
     .then((boots) => {

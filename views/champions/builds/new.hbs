@@ -1,9 +1,15 @@
-<div class="position-absolute top-50 start-50 translate-middle">
-    <img src="{{champion.icon}}" alt="">
+<div class="d-flex allign-items-center justify-content-center flex-column position-absolute top-50 start-50 translate-middle">
+
+    <div class="imgbuild my-3 text-center">
+        <h3>{{champion.name}}</h3>
+        <img style="width: 8rem; border:1px solid grey;" src="{{champion.icon}}" alt="">
+    </div>
+    
+    <div>
     <form  method="POST" action="/random/new">
         <input name="champion" hidden type="text" value='{{champion.id}}' />
-        <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item">
+        <div class="accordion accordion-flush" style="width: 90rem;" id="accordionFlushExample">
+            <div class="accordion-item ">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseZero" aria-expanded="false" aria-controls="flush-collapseZero">
                         Keystone
@@ -13,9 +19,9 @@
                     <div class="accordion-body">
                         <fieldset name="rune" max="5">
                             <legend>Keystone</legend>
-                            {{#each build.runes as |rune|}}
+                            {{#each build.rune as |rune|}}
                                 <label>
-                                    <input type="radio" name="rune" value="{{ rune.id }}"><img class="img-thumbnail" src="{{ rune.image }}" alt="">
+                                    <input required type="radio" name="rune" value="{{ rune.id }}"><img class="img-thumbnail" style="width: 5rem;"src="{{ rune.image }}" alt="">
                                 </label>
                             {{/each}}
                         </fieldset>
@@ -34,7 +40,7 @@
                             <legend>Boots</legend>
                             {{#each build.boots as |boots|}}
                                 <label>
-                                    <input type="radio" name="boots" value="{{ boots.id }}"><img class="img-thumbnail" src="{{ boots.image }}" alt="">
+                                    <input required type="radio" name="boots" value="{{ boots.id }}"><img class="img-thumbnail" style="width: 5rem;" src="{{ boots.image }}" alt="">
                                 </label>
                             {{/each}}
                         </fieldset>
@@ -53,7 +59,7 @@
                             <legend>Mythic Item</legend>
                             {{#each build.mythics as |mythic|}}
                                 <label>
-                                    <input type="radio" name="mythic" value="{{ mythic.id }}"><img class="img-thumbnail" src="{{ mythic.image }}" alt="">
+                                    <input required type="radio" name="mythic" value="{{ mythic.id }}"><img class="img-thumbnail" style="width: 5rem;" src="{{ mythic.image }}" alt="">
                                 </label>
                             {{/each}}
                         </fieldset>
@@ -72,7 +78,7 @@
                             <legend>2nd Item</legend>
                             {{#each build.legendaries as |legendary|}}
                                 <label>
-                                    <input type="radio" name="item1" value="{{ legendary.id }}"><img class="img-thumbnail" src="{{ legendary.image }}" alt="">
+                                    <input required type="radio" name="item1" value="{{ legendary.id }}"><img class="img-thumbnail" style="width: 5rem;" src="{{ legendary.image }}" alt="">
                                 </label>
                             {{/each}}
                         </fieldset>
@@ -91,7 +97,7 @@
                             <legend>3rd Item</legend>
                             {{#each build.legendaries as |legendary|}}
                                 <label>
-                                    <input type="radio" name="item2" value="{{ legendary.id }}"><img class="img-thumbnail" src="{{ legendary.image }}" alt="">
+                                    <input required type="radio" name="item2" value="{{ legendary.id }}"><img class="img-thumbnail" style="width: 5rem;" src="{{ legendary.image }}" alt="">
                                 </label>
                             {{/each}}
                         </fieldset>
@@ -110,7 +116,7 @@
                             <legend>4th Item</legend>
                             {{#each build.legendaries as |legendary|}}
                                 <label>
-                                    <input type="radio" name="item3" value="{{ legendary.id }}"><img class="img-thumbnail" src="{{ legendary.image }}" alt="">
+                                    <input required type="radio" name="item3" value="{{ legendary.id }}"><img class="img-thumbnail" style="width: 5rem;" src="{{ legendary.image }}" alt="">
                                 </label>
                             {{/each}}
                         </fieldset>
@@ -129,7 +135,7 @@
                             <legend>5th Item</legend>
                             {{#each build.legendaries as |legendary|}}
                                 <label>
-                                    <input type="radio" name="item4" value="{{ legendary.id }}"><img class="img-thumbnail" src="{{ legendary.image }}" alt="">
+                                    <input required type="radio" name="item4" value="{{ legendary.id }}"><img class="img-thumbnail" style="width: 5rem;" src="{{ legendary.image }}" alt="">
                                 </label>
                             {{/each}}
                         </fieldset>
@@ -148,7 +154,7 @@
                             <legend>6th Item</legend>
                             {{#each build.legendaries as |legendary|}}
                                 <label>
-                                    <input type="radio" name="item5" value="{{ legendary.id }}"><img class="img-thumbnail" src="{{ legendary.image }}" alt="">
+                                    <input required type="radio" name="item5" value="{{ legendary.id }}"><img class="img-thumbnail" style="width: 5rem;" src="{{ legendary.image }}" alt="">
                                 </label>
                             {{/each}}
                         </fieldset>
@@ -156,8 +162,11 @@
                 </div>
             </div>
         </div>
-        <button type="submit">Save</button>
+        <div class="btnsavenew">
+            <input type="submit" value="Save">
+        </div>
     </form>
+    </div>
 </div>
 
 <!--

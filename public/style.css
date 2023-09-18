@@ -82,6 +82,7 @@ body {
   padding: 30px 40px;
 }
 
+
 .login {
   display: flex;
   justify-content: center;
@@ -211,6 +212,15 @@ body {
   transition: 0.5s ease-in-out;
 }
 
+
+.detailall:hover div {
+
+  border:solid rgb(22, 1, 30);
+  border-width: 1em;
+
+}
+
+
 .build {
   font-family: Trebuchet Ms;
 }
@@ -221,7 +231,9 @@ body {
   margin: 20px 0 15px
 }
 
-.detailb {
+.detailb a {
+  padding: 15px;
+  margin-left: 120px;
   text-align: center;
   font-family: Trebuchet Ms;
   width: 100%;
@@ -237,9 +249,15 @@ body {
 }
 
 .dbuild {
-  margin-left: 25%;
-  margin-top: 2%;
-  margin-bottom: 5%;
+  padding: 10px;
+  background-color: rgba(34, 0, 48);
+  width: fit-content;
+  display: inline-block;
+  border: solid rgb(13, 0, 18);
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 .dbuild > img {
@@ -264,15 +282,7 @@ body {
   margin-left: 10px;
 }
 
-.verticalrule {
-  position: static;
-  margin-left: 50%;
-  margin-top: -22%;
-}
-
-
-.savechampbuild button {
-  margin-left: 40%;
+.savebutton button {
   text-align: center;
   font-family: Trebuchet Ms;
   width: 20%;
@@ -308,3 +318,62 @@ body {
   margin-left: 90%;
   margin-top: -195%;
 }
+
+.commentprofile {
+    margin-top: 100px;
+    margin-bottom: 10px;
+    margin-left:10px
+}
+
+
+.buttonnewbuild {
+  margin-top: -80px;
+  text-align: center;
+  font-family: Trebuchet Ms;
+  width: 10%;
+  height: 45px;
+  color: white;
+  background: rgb(68, 1, 95);;
+  border:none;
+  outline:none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  color:#333;
+  font-weight: 600px;
+
+}
+
+.imgbuild{
+  color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btnsavenew input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: Trebuchet Ms;
+  width: 20%;
+  height: 45px;
+  background: #fff;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  color:#333;
+  font-weight: 600px;
+
+}
+
+.nombrechampdetail {
+  display: block;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+

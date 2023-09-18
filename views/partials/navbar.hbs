@@ -5,12 +5,13 @@
                 <div class="mt-2"><a class="" href="/"><img src="https://res.cloudinary.com/dg1pgnrnl/image/upload/Assets/NavbarLogo.png" alt="Bootstrap" width="250" height="25"></a></div>
                 <div class="ms-4 mt-2"><a class="fs-5 nav-link text-white active" href="/champions/list">Champions</a></div>
                 <div class="ms-4 mt-2"><a class="fs-5 nav-link text-white active" href="/random/build">Randomizer</a></div>
+                <div class="ms-4 mt-2"><a class="fs-5 nav-link text-white active" href="/random/team">Team Randomizer</a></div>
             </div>
             <div class="d-inline-flex p-2"><div class="d-inline-flex p-2">
                 {{#if currentUser}}
                     <form method="POST" action="/logout">
                         <div class="d-inline-flex mx-2">
-                            <p class="fs-5 text-white active">{{currentUser.username}}</p>
+                            <a class="fs-5 text-white active" href="/users/profile">{{currentUser.username}}</a>
                         </div>
                         <button type="submit" class="btn btn-danger">Log out</button>
                     </form>

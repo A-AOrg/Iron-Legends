@@ -9,43 +9,10 @@ const Utils = require("../utils/utils");
 module.exports.randomBuild = (req,res,next) => {
     const build = {};
 
-    const groups = [1, 2, 3, 4, 5];
-    const levels = [1, 2, 3, 4];
-    const secondaryLevels = [2, 3, 4];
-    
-    const group = Utils.pickAmountOfRandomaElements(groups, 2);
-    const group1 = group[0], group2 = group[1];
-
-    const pickedSecondaryLevels = Utils.pickAmountOfRandomaElements(secondaryLevels, 2);
-    const pickedSecLvls1 = pickedSecondaryLevels[0], pickedSecLvls2 = pickedSecondaryLevels[1];
-
-    build.runes = { "primaryRunes": [], "secondaryRunes": [] }
-    
-    Rune.find({$and: [{ group: { $in: [ group1 ] }},{ level: { $in: [ 1 ] }}]})
+    Rune.find({level: 1})
     .then((runes) => {
-        build.runes.primaryRunes[0] = Utils.pickAmountOfRandomaElements(runes, 1)[0]
+        build.rune = Utils.pickAmountOfRandomaElements(runes, 1)[0]
     })
-    Rune.find({$and: [{ group: { $in: [ group1 ] }},{ level: { $in: [ 2 ] }}]})
-    .then((runes) => {
-        build.runes.primaryRunes[1] = Utils.pickAmountOfRandomaElements(runes, 1)[0]
-    })
-    Rune.find({$and: [{ group: { $in: [ group1 ] }},{ level: { $in: [ 3 ] }}]})
-    .then((runes) => {
-        build.runes.primaryRunes[2] = Utils.pickAmountOfRandomaElements(runes, 1)[0]
-    })
-    Rune.find({$and: [{ group: { $in: [ group1 ] }},{ level: { $in: [ 4 ] }}]})
-    .then((runes) => {
-        build.runes.primaryRunes[3] = Utils.pickAmountOfRandomaElements(runes, 1)[0]
-    })
-
-    Rune.find({$and: [{ group: { $in: [ group2 ] }},{ level: { $in: [ pickedSecLvls1 ] }}]})
-    .then((runes) => {
-        build.runes.secondaryRunes[0] = Utils.pickAmountOfRandomaElements(runes, 1)[0]
-    })
-    Rune.find({$and: [{ group: { $in: [ group2 ] }},{ level: { $in: [ pickedSecLvls2 ] }}]})
-    .then((runes) => {
-        build.runes.secondaryRunes[1] = Utils.pickAmountOfRandomaElements(runes, 1)[0]
-    })    
 
     Champion.distinct('name').then((names) => {
         const pickedNames = Utils.pickAmountOfRandomaElements(names, 1);
@@ -85,7 +52,7 @@ module.exports.create = (req,res,next) => {
 
     Rune.find({level: 1})
     .then((runes) => {
-        build.runes = runes
+        build.rune = runes
     })
 
     Item.find({ boots: { $eq: true } })
@@ -109,7 +76,7 @@ module.exports.create = (req,res,next) => {
     Champion.findById(req.params.id)
     .then((champ) => {
         const champion = champ;
-        setTimeout(() => {res.render("champions/builds/new", { build, champion })}, 500)
+        setTimeout(() => {res.render("champions/builds/new", { build, champion })}, 220)
     })
     .catch(next);
 }

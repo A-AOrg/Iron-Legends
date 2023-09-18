@@ -1,6 +1,7 @@
-<h1 class="text-white">{{currentUser.username}}</h1>
-
-<h1 class="text-white">Comments</h1>
+<h1 class="text-white text-center">{{currentUser.username}}</h1>
+<div class="commentprofile">
+    <h1 class="text-white">Comments</h1>
+</div>
 
 {{#if userDetails.comments}}
     {{#each userDetails.comments as |comment|}}
@@ -14,6 +15,7 @@
                 </div>
             </div>
         </div>
+
     <div class="card" style="width: 45rem">
         <div class="card-body">
             <div class="d-flex flex-start">
@@ -33,7 +35,8 @@
     {{/each}}
 {{/if}}
 
-<h1 class="text-white">Builds</h1>
+
+<h1 class="text-white text-center">Builds</h1>
 
 {{#if userDetails.build}}
   {{#each userDetails.build as |build|}}
@@ -50,7 +53,7 @@
                             </div>
 
                             <div class="col-sm my-2">
-                                <div class="m-3 card" style="width: 10rem;">
+                                <div class="m-3" style="width: 10rem;">
                                     <img src={{build.rune.image}} class="card-img" alt="">
                                 </div>
                             </div>

@@ -1,76 +1,36 @@
-<div class="champwrap">
-    <body>
-        <h1>{{championDetail.champion.name}}</h1>
-        <h1>{{championDetail.champion.title}}</h1>
-        <img src={{championDetail.champion.splashart}} alt="">
-    </body>
-</div>
-
-<div class="champbuildtxt">
-<h1>Builds</h1>
-</div>
-
-{{#if championDetail.build}}
-  {{#each championDetail.build as |build|}}
-    <div class="container text-center" style="max-width: 900px;">
-        <div class="col align-self-center mt-5">
-            <div class="card mb-3 bg-transparent my-4">
-                <div class="row g-0">
-                    <div class="col-md-8">
-                        <div class="card-body row">
-                            <div class="col-sm my-2">
-                                <div class="bg-transparent  m-3 card" style="width: 10rem;">
-                                    <img src={{build.rune.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-
-                            <div class="col-sm my-2">
-                                <div class="m-3 card" style="width: 10rem;">
-                                    <img src={{build.boots.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm my-2">
-                                <div class="m-3 card" style="width: 10rem;">
-                                    <img src={{build.mythic.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm my-2">
-                                <div class="m-3 card" style="width: 10rem;">
-                                    <img src={{build.item1.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-                            <div class="col-sm my-2">
-                                <div class="m-3 card" style="width: 10rem;">
-                                    <img src={{build.item2.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-                            <div class="col-sm my-2">
-                                <div class="m-3 card" style="width: 10rem;">
-                                    <img src={{build.item3.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-                            <div class="col-sm my-2">
-                                <div class="m-3 card" style="width: 10rem;">
-                                    <img src={{build.item4.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-                            <div class="col-sm my-2">
-                                <div class="m-3 card" style="width: 10rem;">
-                                    <img src={{build.item5.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-                            <div class= "detailb">
-                              <a class= "fs-5 text-black active" href="/builds/{{ build._id }}">Build Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>    
+<div class="container-fluid bgsplash" style="background-image: url('https://res.cloudinary.com/dg1pgnrnl/image/upload/Assets/overlay_hquylb.png'),url('{{championDetail.champion.splashart}}'); background-size: cover; background-repeat: no-repeat;">
+    <div class="champwrap">
+        <body>
+            <h1>{{championDetail.champion.name}}</h1>
+            <h1>{{championDetail.champion.title}}</h1>
+            <img src={{championDetail.champion.splashart}} alt="">
+        </body>
     </div>
-  {{/each}}
-{{/if}}
 
-<a href="/champions/{{ championDetail.champion.id }}/builds/new">Create New Build</a>
+    <div class="champbuildtxt">
+        <h1>Builds</h1>
+    </div>
+
+    {{#if championDetail.build}}
+      {{#each championDetail.build as |build|}}
+        <div class="detailall">
+            <a href="/builds/{{ build._id }}">
+                <div class="dbuild d-inline-block d-flex justify-content-center mt-4 mb-5">
+                    <img src=" {{build.rune.image}} " alt="">
+                    <img src=" {{build.boots.image}} " alt="">
+                    <img src=" {{build.mythic.image}} " alt="">
+                    <img src=" {{build.item1.image}} " alt="">
+                    <img src=" {{build.item2.image}} " alt="">
+                    <img src=" {{build.item3.image}} " alt="">
+                    <img src=" {{build.item4.image}} " alt="">
+                    <img src=" {{build.item5.image}} " alt="">
+                </div>
+            </a> 
+        </div> 
+      {{/each}}
+    {{/if}}
+
+    <div class="buttonnewbuild">
+        <a href="/champions/{{ championDetail.champion.id }}/builds/new" style="text-white">Add Build</a>
+    </div>
+</div>
