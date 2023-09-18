@@ -186,6 +186,7 @@ body {
 }
 
 .champwrap {
+  color: white;
   text-align: center;
 }
 
@@ -248,19 +249,62 @@ body {
 }
 
 .champbuildtxt {
+  color: white;
   margin-top: 5%;
   text-align: center;
 }
 
 .commentsection {
+  position: static;
   margin-right: -55%;
-  margin-top: -25%;
+  margin-top: -5%;
 }
 .comments {
+  position: static;
   margin-left: 10px;
 }
 
 .verticalrule {
+  position: static;
   margin-left: 50%;
   margin-top: -22%;
+}
+
+
+.savechampbuild button {
+  margin-left: 40%;
+  text-align: center;
+  font-family: Trebuchet Ms;
+  width: 20%;
+  height: 45px;
+  background: #fff;
+  border:none;
+  outline:none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  color:#333;
+  font-weight: 600px;
+
+}
+
+.botonsaveteam {
+  margin-left: 40%;
+  text-align: center;
+  font-family: Trebuchet Ms;
+  width: 20%;
+  height: 45px;
+  background: #fff;
+  border:none;
+  outline:none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  color:#333;
+  font-weight: 600px;
+}
+
+.buildrandom {
+  margin-left: 90%;
+  margin-top: -195%;
 }
