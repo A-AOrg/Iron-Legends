@@ -10,7 +10,7 @@ module.exports.randomBuild = (req,res,next) => {
     const build = {};
 
     const groups = [1, 2, 3, 4, 5];
-    const levels = [0, 1, 2, 3, 4];
+    const levels = [1, 2, 3, 4];
     const secondaryLevels = [2, 3, 4];
     
     const group = Utils.pickAmountOfRandomaElements(groups, 2);
@@ -21,38 +21,30 @@ module.exports.randomBuild = (req,res,next) => {
 
     build.runes = { "primaryRunes": [], "secondaryRunes": [] }
     
-    Rune.find({$and: [{ group: { $in: [ group1 ] }},{ level: { $in: [ 0 ] }}]})
+    Rune.find({$and: [{ group: { $in: [ group1 ] }},{ level: { $in: [ 1 ] }}]})
     .then((runes) => {
         build.runes.primaryRunes[0] = Utils.pickAmountOfRandomaElements(runes, 1)[0]
     })
-    Rune.find({$and: [{ group: { $in: [ group1 ] }},{ level: { $in: [ 1 ] }}]})
+    Rune.find({$and: [{ group: { $in: [ group1 ] }},{ level: { $in: [ 2 ] }}]})
     .then((runes) => {
         build.runes.primaryRunes[1] = Utils.pickAmountOfRandomaElements(runes, 1)[0]
     })
-    Rune.find({$and: [{ group: { $in: [ group1 ] }},{ level: { $in: [ 2 ] }}]})
+    Rune.find({$and: [{ group: { $in: [ group1 ] }},{ level: { $in: [ 3 ] }}]})
     .then((runes) => {
         build.runes.primaryRunes[2] = Utils.pickAmountOfRandomaElements(runes, 1)[0]
     })
-    Rune.find({$and: [{ group: { $in: [ group1 ] }},{ level: { $in: [ 3 ] }}]})
+    Rune.find({$and: [{ group: { $in: [ group1 ] }},{ level: { $in: [ 4 ] }}]})
     .then((runes) => {
         build.runes.primaryRunes[3] = Utils.pickAmountOfRandomaElements(runes, 1)[0]
     })
-    Rune.find({$and: [{ group: { $in: [ group1 ] }},{ level: { $in: [ 4 ] }}]})
-    .then((runes) => {
-        build.runes.primaryRunes[4] = Utils.pickAmountOfRandomaElements(runes, 1)[0]
-    })
 
-    Rune.find({$and: [{ group: { $in: [ group2 ] }},{ level: { $in: [ 0 ] }}]})
+    Rune.find({$and: [{ group: { $in: [ group2 ] }},{ level: { $in: [ pickedSecLvls1 ] }}]})
     .then((runes) => {
         build.runes.secondaryRunes[0] = Utils.pickAmountOfRandomaElements(runes, 1)[0]
     })
-    Rune.find({$and: [{ group: { $in: [ group2 ] }},{ level: { $in: [ pickedSecLvls1 ] }}]})
-    .then((runes) => {
-        build.runes.secondaryRunes[1] = Utils.pickAmountOfRandomaElements(runes, 1)[0]
-    })
     Rune.find({$and: [{ group: { $in: [ group2 ] }},{ level: { $in: [ pickedSecLvls2 ] }}]})
     .then((runes) => {
-        build.runes.secondaryRunes[2] = Utils.pickAmountOfRandomaElements(runes, 1)[0]
+        build.runes.secondaryRunes[1] = Utils.pickAmountOfRandomaElements(runes, 1)[0]
     })    
 
     Champion.distinct('name').then((names) => {
@@ -89,37 +81,44 @@ module.exports.randomBuild = (req,res,next) => {
 }
 
 module.exports.create = (req,res,next) => {
-    const items = {}
+    const build = {}
+
+    Rune.find({level: 1})
+    .then((runes) => {
+        build.runes = runes
+    })
 
     Item.find({ boots: { $eq: true } })
     .then((boots) => {
-        items.boots = boots
+        build.boots = boots
     })
     .catch(next);
 
     Item.find({ mythic: { $eq: true } })
     .then((mythics) => {
-        items.mythics = mythics
+        build.mythics = mythics
     })
     .catch(next);
 
     Item.find({$and: [{ boots: { $in: [ false ] }},{ mythic: { $in: [ false ] }}]})
     .then((legendaries) => {
-        items.legendaries = legendaries
+        build.legendaries = legendaries
     })
     .catch(next);
 
     Champion.findById(req.params.id)
     .then((champ) => {
         const champion = champ;
-        setTimeout(() => {res.render("champions/builds/new", { items, champion })}, 500)
+        setTimeout(() => {res.render("champions/builds/new", { build, champion })}, 500)
     })
     .catch(next);
 }
 
 module.exports.doCreate = (req,res,next) => {
     Build.create({
+        author: req.user.username,
         champion: req.body.champion,
+        rune: req.body.rune,
         boots: req.body.boots,
         mythic: req.body.mythic,
         item1: req.body.item1,
@@ -141,6 +140,15 @@ module.exports.detail = (req, res, next) => {
         }
     })
     Build.findById(req.params.id)
+        .populate("champion")
+        .populate("rune")
+        .populate("boots")
+        .populate("mythic")
+        .populate("item1")
+        .populate("item2")
+        .populate("item3")
+        .populate("item4")
+        .populate("item5")
     .then((build) => {
         buildDetails.build = build
         setTimeout(() => {res.render("builds/detail", { buildDetails })}, 250)

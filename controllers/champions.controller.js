@@ -1,7 +1,9 @@
 const Champion = require("../models/champions.model");
-const Utils = require("../utils/utils");
 const Build = require("../models/build");
+const Item = require("../models/items.model");
+const Rune = require("../models/runes.model");
 const Comment = require("../models/comment.model");
+const Utils = require("../utils/utils");
 
 
 module.exports.list = (req,res,next) => {
@@ -15,7 +17,17 @@ module.exports.list = (req,res,next) => {
 
 module.exports.detail = (req, res, next) => {
     const championDetail = {};
+
     Build.find({ champion: { $eq: req.params.id }})
+        .populate("champion")
+        .populate("rune")
+        .populate("boots")
+        .populate("mythic")
+        .populate("item1")
+        .populate("item2")
+        .populate("item3")
+        .populate("item4")
+        .populate("item5")
     .then((buildList) => {
         if (buildList.length > 0) {
             championDetail.build = buildList;

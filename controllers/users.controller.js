@@ -1,6 +1,12 @@
 const User = require("../models/users.model");
 const bcrypt = require("bcrypt")
 
+const Build = require("../models/build");
+const Champion = require("../models/champions.model");
+const Item = require("../models/items.model");
+const Rune = require("../models/runes.model");
+const Comment = require("../models/comment.model");
+
 module.exports.create = (req, res, next) => {
     res.render("users/new")
 }
@@ -41,3 +47,32 @@ module.exports.logout = (req, res, next) => {
     req.session.destroy();
     res.redirect("/login");
 };
+
+module.exports.detail = (req, res, next) => {
+    const userDetails = {}
+    
+    Comment.find({ author: req.user.username })
+    .then((commentList) => {
+        if (commentList.length > 0) {
+            userDetails.comments = commentList;
+        }
+    })
+
+    Build.find({ author: req.user.username })
+        .populate("champion")
+        .populate("rune")
+        .populate("boots")
+        .populate("mythic")
+        .populate("item1")
+        .populate("item2")
+        .populate("item3")
+        .populate("item4")
+        .populate("item5")
+    .then((buildList) => {
+        if (buildList.length > 0) {
+            userDetails.build = buildList;
+        }
+        setTimeout(() => {
+            res.render("users/detail", { userDetails })}, 250)
+    })
+}

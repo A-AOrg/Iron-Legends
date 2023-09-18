@@ -26,6 +26,7 @@ router.post("/champions", champions.doCreate);
 router.get("/champions/:id", champions.detail);
 
 // users CRUD
+router.get("/users/profile", secure.isLogged, users.detail);
 router.get("/users/new", users.create);
 router.post("/users", users.doCreate);
 router.get("/login", users.login);

@@ -1,6 +1,7 @@
 const Build = require("../models/build");
 const Champion = require("../models/champions.model");
 const Item = require("../models/items.model");
+const Rune = require("../models/runes.model");
 const Utils = require("../utils/utils");
 
 module.exports.randomComp = (req,res,next) => {
