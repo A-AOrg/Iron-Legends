@@ -65,10 +65,11 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="accordion-item bg-transparent">
                         <h2 class="accordion-header">
                             <button class="border text-white accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                <h4>2nd Item</h4>
+                                <h4>1st Item</h4>
                             </button>
                         </h2>
                         <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -86,7 +87,7 @@
                     <div class="accordion-item bg-transparent">
                         <h2 class="accordion-header">
                             <button class="border text-white accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                                <h4>3rd Item</h4>
+                                <h4>2nd Item</h4>
                             </button>
                         </h2>
                         <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -104,7 +105,7 @@
                     <div class="accordion-item bg-transparent">
                         <h2 class="accordion-header">
                             <button class="border text-white accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-                                <h4>4th Item</h4>
+                                <h4>3rd Item</h4>
                             </button>
                         </h2>
                         <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -122,7 +123,7 @@
                     <div class="accordion-item bg-transparent">
                         <h2 class="accordion-header">
                             <button class="border text-white accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
-                                <h4>5th Item</h4>
+                                <h4>4th Item</h4>
                             </button>
                         </h2>
                         <div id="flush-collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -131,6 +132,24 @@
                                     {{#each build.legendaries as |legendary|}}
                                         <label>
                                             <input required type="radio" name="item4" value="{{ legendary.id }}"><img class="" style="width: 5rem;" src="{{ legendary.image }}" alt="">
+                                        </label>
+                                    {{/each}}
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-transparent">
+                        <h2 class="accordion-header">
+                            <button class="border text-white accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTen" aria-expanded="false" aria-controls="flush-collapseTen">
+                                <h4>5th Item</h4>
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTen" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body border">
+                                <fieldset name="item1" max="5">
+                                    {{#each build.legendaries as |legendary|}}
+                                        <label>
+                                            <input required type="radio" name="item5" value="{{ legendary.id }}"><img class="" style="width: 5rem;" src="{{ legendary.image }}" alt="">
                                         </label>
                                     {{/each}}
                                 </fieldset>

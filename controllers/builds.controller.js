@@ -94,7 +94,9 @@ module.exports.doCreate = (req,res,next) => {
         item4: req.body.item4,
         item5: req.body.item5,
     })
-    .then()
+    .then(() => {
+        setTimeout(() => {res.redirect(`/champions/${req.body.champion}`)}, 250)
+    })
     .catch(next);
 }
 
