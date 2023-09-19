@@ -50,15 +50,18 @@ module.exports.logout = (req, res, next) => {
 
 module.exports.detail = (req, res, next) => {
     const userDetails = {}
+
+    User.find({ username: req.params.id })
+    .then((users) => {
+        userDetails.username = users[0].username;
+    })
     
-    Comment.find({ author: req.user.username })
+    Comment.find({ author: req.params.id })
     .then((commentList) => {
-        if (commentList.length > 0) {
-            userDetails.comments = commentList;
-        }
+        userDetails.comments = commentList;
     })
 
-    Build.find({ author: req.user.username })
+    Build.find({ author: req.params.id })
         .populate("champion")
         .populate("rune")
         .populate("boots")

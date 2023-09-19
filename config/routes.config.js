@@ -14,9 +14,9 @@ router.get("/random/team", teams.randomComp);
 
 // builds
 router.get("/champions/:id/builds/new", secure.isLogged, builds.create);
-router.post("/random/new", builds.doCreate);
+router.post("/random/new",secure.isLogged, builds.doCreate);
 router.get("/random/build", builds.randomBuild);
-router.post("/builds/:id", comments.doCreate);
+router.post("/builds/:id",secure.isLogged, comments.doCreate);
 router.get("/builds/:id", builds.detail);
 
 // champions CRUD
@@ -26,12 +26,12 @@ router.post("/champions", champions.doCreate);
 router.get("/champions/:id", champions.detail);
 
 // users CRUD
-router.get("/users/profile", secure.isLogged, users.detail);
 router.get("/users/new", users.create);
 router.post("/users", users.doCreate);
 router.get("/login", users.login);
 router.post("/login", users.doLogin);
 router.post("/logout", secure.isLogged, users.logout);
+router.get("/users/:id", users.detail);
 
 router.get("/",(req, res) => res.render("home") );
 module.exports = router;

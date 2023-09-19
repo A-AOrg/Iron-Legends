@@ -1,47 +1,69 @@
-<h1 class="text-white text-center">{{currentUser.username}}</h1>
-<div class="commentprofile">
-    <h1 class="text-white">Comments</h1>
-</div>
-
-{{#if userDetails.comments}}
-    {{#each userDetails.comments as |comment|}}
-    <div class="comments">
-    <section style="background-color: transparent;">
-    <div class="card my-4" style="width: 45rem">
-        <div class="card-body">
-            <div class="d-flex flex-start">
-                <div class="w-100">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h6 class="text-primary fw-bold">
-                        {{comment.author}} -
-                        <span class="text-dark ms-2">{{ comment.text }}</span>
-                        </h6>
+<div class="container vertical-flex-container">
+    <div class="text-center py-5">
+        <h1 class="font-weight-bold text-white">{{userDetails.username}}</h1>
+    </div>
+    {{#if userDetails.comments}}
+        <div class="accordion accordion-flush bg-transparent" style="width: 80rem;" id="accordionFlushExample">
+            <div class="accordion-item bg-dark">
+                <h2 class="accordion-header bg-dark">
+                    <button class="accordion-button collapsed text-center text-white border d-inline-block bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseZero" aria-expanded="false" aria-controls="flush-collapseZero">
+                        <h3>My Comments</h3>
+                    </button>
+                </h2>
+                <div id="flush-collapseZero" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        {{#each userDetails.comments as |comment|}}
+                            <div class="comments d-flex justify-content-center align-items-center">
+                                <section style="background-color: transparent;">
+                                    <div class="card my-4" style="width: 45rem">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-center align-items-center">
+                                                <div class="w-100">
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <h6 class="text-primary fw-bold">{{comment.author}} - <span class="text-dark ms-2">{{ comment.text }}</span></h6><a class="d-inline-block" href="/builds/{{ comment.build }}"><img src="https://static.vecteezy.com/system/resources/previews/009/351/258/original/arrow-icon-arrows-sign-black-arrows-free-png.png" style="width: 4rem" alt=""></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        {{/each}}
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-    </div>
-    </section>
-    {{/each}}
-{{/if}}
-
-{{#if userDetails.build}}
-    <h1 class="text-white text-center">Builds</h1>
-  {{#each userDetails.build as |build|}}
-        <div class="detailall py-5 d-flex justify-content-center">
-            <a class="d-inline-block" href="/builds/{{ build._id }}">
-                <div class="dbuild d-inline-block d-flex justify-content-center my-5">
-                    <img src=" {{build.rune.image}} " alt="">
-                    <img src=" {{build.boots.image}} " alt="">
-                    <img src=" {{build.mythic.image}} " alt="">
-                    <img src=" {{build.item1.image}} " alt="">
-                    <img src=" {{build.item2.image}} " alt="">
-                    <img src=" {{build.item3.image}} " alt="">
-                    <img src=" {{build.item4.image}} " alt="">
-                    <img src=" {{build.item5.image}} " alt="">
+    {{/if}}
+    {{#if userDetails.build}}
+        <div class="accordion accordion-flush bg-transparent" style="width: 80rem;" id="accordionFlushExample">
+            <div class="accordion-item bg-dark">
+                <h2 class="accordion-header bg-dark">
+                    <button class="accordion-button collapsed text-center text-white border d-inline-block bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <h3>My Builds</h3>
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        {{#each userDetails.build as |build|}}
+                            <div class="detailall py-5 d-flex justify-content-center">
+                                <a class="d-inline-block" href="/builds/{{ build._id }}">
+                                    <div class="dbuild d-inline-block d-flex justify-content-center my-2">
+                                        <img src=" {{build.champion.icon}} " alt="">
+                                        <img src=" {{build.rune.image}} " alt="">
+                                        <img src=" {{build.boots.image}} " alt="">
+                                        <img src=" {{build.mythic.image}} " alt="">
+                                        <img src=" {{build.item1.image}} " alt="">
+                                        <img src=" {{build.item2.image}} " alt="">
+                                        <img src=" {{build.item3.image}} " alt="">
+                                        <img src=" {{build.item4.image}} " alt="">
+                                        <img src=" {{build.item5.image}} " alt="">
+                                    </div>
+                                </a>
+                            </div>
+                        {{/each}}
+                    </div>
                 </div>
-            </a>
+            </div>
         </div>
-  {{/each}}
-{{/if}}
+    {{/if}}
+</div>

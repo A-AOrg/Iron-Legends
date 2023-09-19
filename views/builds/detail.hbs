@@ -1,66 +1,74 @@
-
-<div class="dbuild d-inline-block d-flex justify-content-center mt-4 mb-5">
-  <img src=" {{buildDetails.build.champion.icon}} " alt="">
-  <img src=" {{buildDetails.build.rune.image}} " alt="">
-  <img src=" {{buildDetails.build.boots.image}} " alt="">
-  <img src=" {{buildDetails.build.mythic.image}} " alt="">
-  <img src=" {{buildDetails.build.item1.image}} " alt="">
-  <img src=" {{buildDetails.build.item2.image}} " alt="">
-  <img src=" {{buildDetails.build.item3.image}} " alt="">
-  <img src=" {{buildDetails.build.item4.image}} " alt="">
-  <img src=" {{buildDetails.build.item5.image}} " alt="">
-</div>
-<div class="d-flex justify-content-between">
-  <div class="mx-3 mt-5">
-    {{#each buildDetails.comments as |comment|}}
-        <section style="background-color: transparent;">
-          <div class="container text-dark">
-              <div class="row d-flex justify-content-center">
-                  <div class="col-lg-10 col-xl-8">
-                      <div class="d-flex justify-content-between align-items-center mb-4"></div>
-                  </div>
-              </div>
-          </div>
-          <div class="card" style="width: 45rem">
-            <div class="card-body">
-              <div class="d-flex flex-start">
-                <div class="w-100">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h6 class="text-primary fw-bold">
-                      {{comment.author}} -<span class="text-dark ms-2">{{ comment.text }}</span>
-                    </h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-    {{/each}}
-  </div>
-  <div>
-      <section style="background-color: transparent">
-        <div class="container mt-5 text-white">
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-6">
-              <form action="/builds/{{buildDetails.build.id}}" method="POST">
-                <div class="card bg-transparent">
-                  <div class="card-body p-4">
-                      <div>
-                        <h5 class="text-white">Add a comment</h5>
-                        <div class="form-outline">
-                          <textarea class="form-control" name="text" rows="4" placeholder="Write your comment of the build.." cols="1000"></textarea>
-                        </div>
-                        <div class="d-flex justify-content-between mt-3">
-                          <button type="submit" class="btn btn-danger">Send <i class="fas fa-long-arrow-alt-right ms-1"></i>
-                          </button>
-                        </div>
+<div class="container-fluid top-0 left-0 w-100 h-100" style="background-image: url('https://res.cloudinary.com/dg1pgnrnl/image/upload/Assets/overlay_hquylb.png'),url('{{buildDetails.build.champion.splashart}}'); background-size: cover; background-repeat: no-repeat;">
+    <div class="h-6 py-4"></div>
+    <div class="dbuild d-inline-block d-flex justify-content-center mt-4 mb-5">
+      <a href="/champions/{{ buildDetails.build.champion._id }}"><img src=" {{buildDetails.build.champion.icon}} " alt=""></a>
+      <img src=" {{buildDetails.build.rune.image}} " alt="">
+      <img src=" {{buildDetails.build.boots.image}} " alt="">
+      <img src=" {{buildDetails.build.mythic.image}} " alt="">
+      <img src=" {{buildDetails.build.item1.image}} " alt="">
+      <img src=" {{buildDetails.build.item2.image}} " alt="">
+      <img src=" {{buildDetails.build.item3.image}} " alt="">
+      <img src=" {{buildDetails.build.item4.image}} " alt="">
+      <img src=" {{buildDetails.build.item5.image}} " alt="">
+    </div>
+    <div class="d-flex justify-content-between">
+      <div class="mx-3 mt-5">
+        {{#each buildDetails.comments as |comment|}}
+            <section style="background-color: transparent;">
+              <div class="container text-dark">
+                  <div class="row d-flex justify-content-center">
+                      <div class="col-lg-10 col-xl-8">
+                          <div class="d-flex justify-content-between align-items-center mb-4"></div>
                       </div>
                   </div>
+              </div>
+              <div class="card" style="width: 45rem">
+                <div class="card-body">
+                  <div class="d-flex flex-start">
+                    <div class="w-100">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <h6 class="text-primary fw-bold">
+                          <a class="fs-5 active" href="/users/{{comment.author}}">{{comment.author}}</a> -<span class="text-dark ms-2">{{ comment.text }}</span>
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </form>
+              </div>
+            </section>
+        {{/each}}
+      </div>
+      <div>
+          <section style="background-color: transparent">
+            <div class="container mt-5 text-white">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                  <form action="/builds/{{buildDetails.build.id}}" method="POST">
+                    <div class="card bg-transparent">
+                      <div class="card-body p-4">
+                          <div>
+                            <h5 class="text-white">Add a comment</h5>
+                            <div class="form-outline">
+                              <textarea class="form-control" name="text" rows="4" placeholder="Write your comment of the build.." cols="1000"></textarea>
+                            </div>
+                            <div class="d-flex justify-content-between mt-3">
+                              <button type="submit" class="btn btn-danger">Send <i class="fas fa-long-arrow-alt-right ms-1"></i>
+                              </button>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
-  </div>
+          </section>
+      </div>
+    </div>
+    <div class="h-6 my-4 py-4"></div>
+    <div class="h-6 my-4 py-4"></div>
+    <div class="h-6 my-4 py-4"></div>
+    <div class="h-6 my-4 py-4"></div>
+    <div class="h-6 my-4 py-4"></div>
+    <div class="h-6 my-4 py-4"></div>
 </div>

@@ -11,7 +11,7 @@
                 {{#if currentUser}}
                     <form method="POST" action="/logout">
                         <div class="d-inline-flex mx-2">
-                            <a class="fs-5 text-white active" href="/users/profile">{{currentUser.username}}</a>
+                            <a class="fs-5 text-white active" href="/users/{{currentUser.username}}">{{currentUser.username}}</a>
                         </div>
                         <button type="submit" class="btn btn-danger">Log out</button>
                     </form>
