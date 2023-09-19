@@ -7,16 +7,7 @@
     {{#each userDetails.comments as |comment|}}
     <div class="comments">
     <section style="background-color: transparent;">
-        
-        <div class="container text-dark">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-10 col-xl-8">
-                    <div class="d-flex justify-content-between align-items-center mb-4"></div>
-                </div>
-            </div>
-        </div>
-
-    <div class="card" style="width: 45rem">
+    <div class="card my-4" style="width: 45rem">
         <div class="card-body">
             <div class="d-flex flex-start">
                 <div class="w-100">
@@ -35,74 +26,22 @@
     {{/each}}
 {{/if}}
 
-
-<h1 class="text-white text-center">Builds</h1>
-
 {{#if userDetails.build}}
+    <h1 class="text-white text-center">Builds</h1>
   {{#each userDetails.build as |build|}}
-    <div class="container text-center" style="max-width: 900px;">
-        <div class="col align-self-center mt-5">
-            <div class="card mb-3 bg-transparent my-4">
-                <div class="row g-0">
-                    <div class="col-md-8">
-                        <div class="card-body row">
-                            <div class="col-sm my-2">
-                                <div class="m-3 card bg-transparent" style="width: 10rem;">
-                                    <img src={{build.champion.icon}} class="card-img" alt="">
-                                </div>
-                            </div>
-
-                            <div class="col-sm my-2">
-                                <div class="m-3" style="width: 10rem;">
-                                    <img src={{build.rune.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-
-                            <div class="col-sm my-2">
-                                <div class="m-3 card" style="width: 10rem;">
-                                    <img src={{build.boots.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm my-2">
-                                <div class="m-3 card" style="width: 10rem;">
-                                    <img src={{build.mythic.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm my-2">
-                                <div class="m-3 card" style="width: 10rem;">
-                                    <img src={{build.item1.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-                            <div class="col-sm my-2">
-                                <div class="m-3 card" style="width: 10rem;">
-                                    <img src={{build.item2.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-                            <div class="col-sm my-2">
-                                <div class="m-3 card" style="width: 10rem;">
-                                    <img src={{build.item3.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-                            <div class="col-sm my-2">
-                                <div class="m-3 card" style="width: 10rem;">
-                                    <img src={{build.item4.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-                            <div class="col-sm my-2">
-                                <div class="m-3 card" style="width: 10rem;">
-                                    <img src={{build.item5.image}} class="card-img" alt="">
-                                </div>
-                            </div>
-                            <div class= "detailb">
-                              <a class= "fs-5 text-black active" href="/builds/{{ build._id }}">Build Details</a>
-                            </div>
-                        </div>
-                    </div>
+        <div class="detailall py-5 d-flex justify-content-center">
+            <a class="d-inline-block" href="/builds/{{ build._id }}">
+                <div class="dbuild d-inline-block d-flex justify-content-center my-5">
+                    <img src=" {{build.rune.image}} " alt="">
+                    <img src=" {{build.boots.image}} " alt="">
+                    <img src=" {{build.mythic.image}} " alt="">
+                    <img src=" {{build.item1.image}} " alt="">
+                    <img src=" {{build.item2.image}} " alt="">
+                    <img src=" {{build.item3.image}} " alt="">
+                    <img src=" {{build.item4.image}} " alt="">
+                    <img src=" {{build.item5.image}} " alt="">
                 </div>
-            </div>
-        </div>    
-    </div>
+            </a>
+        </div>
   {{/each}}
 {{/if}}

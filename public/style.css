@@ -213,7 +213,7 @@ body {
 }
 
 
-.detailall:hover div {
+.detailall a:hover div {
 
   border:solid rgb(22, 1, 30);
   border-width: 1em;

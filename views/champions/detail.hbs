@@ -1,36 +1,36 @@
-<div class="container-fluid bgsplash" style="background-image: url('https://res.cloudinary.com/dg1pgnrnl/image/upload/Assets/overlay_hquylb.png'),url('{{championDetail.champion.splashart}}'); background-size: cover; background-repeat: no-repeat;">
+<div class="container-fluid h-100" style="background-image: url('https://res.cloudinary.com/dg1pgnrnl/image/upload/Assets/overlay_hquylb.png'),url('{{championDetail.champion.splashart}}'); background-size: cover; background-repeat: no-repeat;">
     <div class="champwrap">
-        <body>
-            <h1>{{championDetail.champion.name}}</h1>
-            <h1>{{championDetail.champion.title}}</h1>
-            <img src={{championDetail.champion.splashart}} alt="">
-        </body>
+        <h1>{{championDetail.champion.name}}</h1>
+        <h1>{{championDetail.champion.title}}</h1>
+        <img src={{championDetail.champion.splashart}} alt="">
     </div>
 
-    <div class="champbuildtxt">
+    <div class="champbuildtxt py-5">
         <h1>Builds</h1>
     </div>
 
     {{#if championDetail.build}}
-      {{#each championDetail.build as |build|}}
-        <div class="detailall">
-            <a href="/builds/{{ build._id }}">
-                <div class="dbuild d-inline-block d-flex justify-content-center mt-4 mb-5">
-                    <img src=" {{build.rune.image}} " alt="">
-                    <img src=" {{build.boots.image}} " alt="">
-                    <img src=" {{build.mythic.image}} " alt="">
-                    <img src=" {{build.item1.image}} " alt="">
-                    <img src=" {{build.item2.image}} " alt="">
-                    <img src=" {{build.item3.image}} " alt="">
-                    <img src=" {{build.item4.image}} " alt="">
-                    <img src=" {{build.item5.image}} " alt="">
-                </div>
-            </a> 
-        </div> 
-      {{/each}}
+        <div class="bottom mt-5 pb-5">
+            {{#each championDetail.build as |build|}}
+                <div class="detailall d-flex justify-content-center my-4">
+                    <a class="d-inline-block border-5" href="/builds/{{ build._id }}">
+                        <div class="dbuild d-inline-block d-flex justify-content-center">
+                            <img src=" {{build.rune.image}} " alt="">
+                            <img src=" {{build.boots.image}} " alt="">
+                            <img src=" {{build.mythic.image}} " alt="">
+                            <img src=" {{build.item1.image}} " alt="">
+                            <img src=" {{build.item2.image}} " alt="">
+                            <img src=" {{build.item3.image}} " alt="">
+                            <img src=" {{build.item4.image}} " alt="">
+                            <img src=" {{build.item5.image}} " alt="">
+                        </div>
+                    </a> 
+                </div> 
+            {{/each}}
+        </div>
     {{/if}}
 
-    <div class="buttonnewbuild">
+    <div class="fixed-bottom buttonnewbuild">
         <a href="/champions/{{ championDetail.champion.id }}/builds/new" style="text-white">Add Build</a>
     </div>
 </div>
